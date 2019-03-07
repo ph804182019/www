@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="lib/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <style>
+        @font-face{
+            font-family:BLK;
+            src:url('font/BLACK Personal Use.ttf');
+        }
+        @font-face{
+            font-family:CH1;
+            src:url('font/OmePlus-P-Gothic-medium.ttf');
+        }
+        /*CheckBox Start*/
+        body{
+            overflow-x: hidden;
+        }
+        #menu-check{
+            position: fixed;
+            display: none;
+        }
+        header{}
+        .menu-control{
+            position: fixed;
+            top: 50px;
+            right: 0px;
+            width: 44px;
+            height: 44px;
+            background-color:black;
+            cursor: pointer;
+        }
+        .menu-contrlo-barBox{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .menu-contrlo-barBox .menu-contrlo-bar{
+            background-color: aliceblue;
+            width: 32px;
+            height: 2px;
+            margin: 3px auto;
+        }
+        /*CheckBox End*/
+        /*Menu Start*/
+        .menu{
+            background-image:url(image/bgcolor.png);
+            height: 100vh;
+            width: 100%;
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .menu-leave{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: aliceblue;
+            height: 66px;
+            width: 66px;
+            cursor: pointer;
+            line-height: 66px;
+            text-align: center;
+            font-size: 42px;
+        }
+        .garbage-li{
+            height: 25%;
+        }
+        .menu li a{
+            text-decoration: none;
+            font-size: 50px;
+            text-align: center;
+            display: block;
+            margin: 10px auto;
+            color: black;
+            font-family: CH1;
+            transition: .2s;
+        }
+        .menu li a span{
+            display: block;
+            font-size: 26px;
+            font-family: BLK;
+            color: #0F2B2E;
+            transition: .2s;
+        }
+        .menu li:hover a,.menu li:hover a span{
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+  <input type="checkbox" id="menu-check">
+   <label for="menu-check" class="menu-control">
+        <div class="menu-contrlo-barBox">
+           <div class="menu-contrlo-bar"></div>
+           <div class="menu-contrlo-bar"></div>
+           <div class="menu-contrlo-bar"></div>
+        </div>
+   </label>
+    <header>
+        <div class="menu">
+           <div class="menu-leave">x</div>
+           <li class="garbage-li"></li>
+            <li><a href="#">首頁<span>WELCOME!</span></a></li>
+            <li><a href="#">簡歷<span>Self introduction</span></a></li>
+            <li><a href="#">作品集<span>Protfolio</span></a></li>
+            <li><a href="#">聯絡資訊<span>Contact Me</span></a></li>
+        </div>
+    </header>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae autem recusandae veniam, ullam reprehenderit itaque doloremque aut exercitationem perferendis rerum laudantium, aliquam te mporibus corrupti ut delectus consequuntur est ipsa odit.</div>
+
+    
+    <script>
+        $(document).ready(function(){
+            $(".menu-control").click(function(){
+                $(".menu").fadeIn();
+            });
+            $(".menu-leave").click(function(){
+                $(".menu").fadeOut();
+            });
+        })
+    </script>
+</body>
+</html>
