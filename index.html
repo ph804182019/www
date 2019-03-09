@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Menu</title>
     <link rel="stylesheet" href="lib/reset.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <script src="lib/jquery-3.3.1.min.js"></script>
     <style>
         @font-face{
@@ -20,10 +21,23 @@
             font-family:EX;
             src:url('font/Explogos - Demo.ttf');
         }
-        /**********CheckBox Start**********/
+        @font-face{
+            font-family:Ver;
+            src:url('font/Vertexio.otf');
+        }
+        @font-face{
+            font-family:Jolly;
+            src:url('font/Jolly.ttf');
+        }
+        /*reset*/
         body{
             overflow-x: hidden;
         }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        /**********CheckBox Start**********/
         header{
             position: relative;
         }
@@ -39,6 +53,7 @@
             height: 44px;
             background-color:black;
             cursor: pointer;
+            z-index: 1;
         }
         .menu-contrlo-barBox{
             width: 100%;
@@ -62,7 +77,7 @@
             width: 100%;
             list-style: none;
             display: none;
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             z-index: 1;
@@ -162,7 +177,7 @@
             font-family: EX;
             font-size: 14px;
         }
-        
+
         .main-text{
             box-sizing: content-box;
             position: absolute;
@@ -176,13 +191,14 @@
             flex-direction: column;
             padding: 20px 22vw;
             width: 50%;
+            line-height: 1.5;
         }
-        
+
         .main-text span{
             width: 100%;
             font-size: 22px;
         }
-        
+
         .main-text-botLine{
             position: absolute;
             border-left: solid 1px;
@@ -191,14 +207,76 @@
             top: 100%;
             left: 50%;
         }
-        
+
         .hexPage{
             height: 54vh;
+        }
+        .content{}
+        .content h1{
+            font-family:Ver;
+            font-size: 30px;
+            text-align: center;
+            margin: 60px auto;
+        }
+        
+        .content-box{
+            max-width: 80vw;
+            margin: auto;
+        }
+        
+        .content p{
+            font-family: monospace;
+            font-size: 16px;
+            color: #636e72;
+            line-height: 1.5;
+            letter-spacing: 1.2px;
+        }
+        
+        .content-btn{
+            font-family: monospace;
+            font-size: 20px;
+            border: solid 1px;
+            margin: 30px auto 0;
+            width:240px;
+            height: 40px;
+            text-align: center;
+            transition: .2s;
+        }
+        .content-btn a{
+            display: block;
+            width: 100%;
+            line-height: 40px;
+        }
+        
+        .content-btn:hover{
+            border: solid 1px #00cec9;
+            background-color: #00cec9;
+        }
+        
+        /*rwd*/
+        .aside-bar{
+            width:50px;
+            height: 100vh;
+            background-color: aliceblue;
+            position: fixed;
+            cursor: pointer;
+        }
+        .aside-bar-left{
+            
+        }
+        .aside-bar-left span{
+            display: block;
+            transform: rotate(-90deg);
+        }
+        .aside-bar-right{
+            right: 0;
         }
     </style>
 </head>
 
 <body>
+    <div class="aside-bar aside-bar-right"><span>ABOUT ME</span></div>
+    <div class="aside-bar aside-bar-left"><span>PROTFOLIO</span></div>
     <input type="checkbox" id="menu-check">
     <label for="menu-check" class="menu-control">
         <div class="menu-contrlo-barBox">
@@ -223,37 +301,45 @@
         </div>
     </header>
     <div class="hexPage">
-    <article class="main">
-        <div class="main-logoBox">
-            <object data="image/LOGO.svg" type="image/svg+xml" class="main-logoBOx-svg"></object>
-            <span class="main-loboBox-text">PERSONAL WEB</span>
-        </div>
-        
-        
-        <div class="main-imgBox"><img src="image/main.png"></div>
-        <div class="main-text">
-            <span>WELCOME</span>
-            <span>TO</span>
-            <span>J'S WEBSITE</span>
-            <div class="main-text-botLine"></div>
-        </div>
-        
-    </article>
+        <article class="main">
+            <div class="main-logoBox">
+                <object data="image/LOGO.svg" type="image/svg+xml" class="main-logoBOx-svg"></object>
+                <span class="main-loboBox-text">PERSONAL WEB</span>
+            </div>
+
+
+            <div class="main-imgBox"><img src="image/main.png"></div>
+            <div class="main-text">
+                <span>WELCOME</span>
+                <span>TO</span>
+                <span>J'S WEBSITE</span>
+                <div class="main-text-botLine"></div>
+            </div>
+
+        </article>
     </div>
-    
+    <div class="content">
+        <h1>ABOUT ME</h1>
+        <div class="content-box">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ullam velit animi possimus nostrum sapiente provident omnis numquam architecto repudiandae accusantium nemo explicabo ipsum perferendis, cum ratione, excepturi est delectus.</p>
+        </div>
+        <div class="content-btn"><a href="#">MORE ABOUT ME</a></div>
+    </div>
     <script>
         $(document).ready(function() {
             $(".menu-control").click(function() {
-                $(".menu").fadeIn(800,function(){/*callback*/
+                $(".menu").fadeIn(800, function() { /*callback*/
                     $(".menu-control").hide();
                 });
             });
             $(".menu-leave").click(function() {
-                $(".menu").fadeOut(800,function(){
+                $(".menu").fadeOut(800, function() {
                     $(".menu-control").show();
                 });
             });
         })
+
     </script>
 </body>
+
 </html>
