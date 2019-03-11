@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <script src="lib/jquery-3.3.1.min.js"></script>
     <style>
+                            /*font-family Start*/
         @font-face{
             font-family:BLK;
             src:url('font/BLACK Personal Use.ttf');
@@ -29,7 +30,8 @@
             font-family:Jolly;
             src:url('font/Jolly.ttf');
         }
-        /*reset*/
+                            /*font-family END*/
+                            /*reset Start*/
         body{
             overflow-x: hidden;
         }
@@ -37,7 +39,8 @@
             text-decoration: none;
             color: black;
         }
-        /**********CheckBox Start**********/
+                            /*reset END*/
+                            /**********CheckBox Start**********/
         header{
             position: relative;
         }
@@ -69,8 +72,123 @@
             height: 2px;
             margin: 3px auto;
         }
-        /**********CheckBox END**********/
-        /**********Menu Start**********/
+                            /**********CheckBox END**********/
+
+                            /**********Main Start**********/
+        .main{
+            position: relative;
+        }
+        .main-imgBox{
+            position: absolute;
+            width: 100vw;
+            top: 80px;
+            z-index: -1;
+        }
+        .main-imgBox img{
+            max-width: 100vw;
+        }
+        
+        .main-logoBox{
+            position: absolute;
+            top: 9px;
+            right: 50%;
+            transform: translateX(50%);
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .main-logoBOx-svg{
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        .main-loboBox-text{
+            display: block;
+            color: #2d3436;
+            font-family: EX;
+            font-size: 14px;
+        }
+
+        .main-text{
+            position: absolute;
+            font-family: EX;
+            text-align: center;
+            bottom: -36vh;
+            right: 50%;
+            transform: translateX(50%);
+            border: solid 1px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 22vw;
+            width: 50%;
+            line-height: 1.5;
+        }
+
+        .main-text span{
+            width: 100%;
+            font-size: 22px;
+        }
+
+        .main-text-botLine{
+            position: absolute;
+            border-left: solid 1px;
+            width: 50px;
+            height: 150px;
+            top: 100%;
+            left: 50%;
+        }
+
+        .hexPage{
+            height: 54vh;
+        }
+        .content h1{
+            font-family:Ver;
+            font-size: 30px;
+            text-align: center;
+            margin: 60px auto;
+        }
+        
+        .content-box{
+            max-width: 80vw;
+            margin: auto;
+        }
+        
+        .content p{
+            font-family: monospace;
+            font-size: 16px;
+            color: #636e72;
+            line-height: 1.5;
+            letter-spacing: 1.2px;
+        }
+        
+        .content-btn{
+            font-family: monospace;
+            font-size: 20px;
+            border: solid 1px;
+            margin: 30px auto 0;
+            width:240px;
+            height: 40px;
+            text-align: center;
+            transition: .2s;
+        }
+        .content-btn a{
+            display: block;
+            width: 100%;
+            line-height: 40px;
+        }
+        
+        .content-btn:hover{
+            border: solid 1px #00cec9;
+            background-color: #00cec9;
+        }
+                            /**********Main END**********/
+                            /**********RWD control Start**********/
+        @media screen and (max-width:767px){
+            .aside-bar{
+                display: none;
+            }
+                            /**********Menu Start**********/
         .menu{
             background-image:url(image/bgcolor.png);
             height: 100vh;
@@ -142,135 +260,171 @@
             font-size: 12px;
             letter-spacing: 1.6px;
         }
-        /**********Menu END**********/
-        /**********Main Start**********/
-        .main{
-            position: relative;
+                            /**********Menu END**********/
         }
-        .main-imgBox{
-            position: absolute;
-            width: 100vw;
-            top: 80px;
-            z-index: -1;
+        @media screen and (min-width:768px){
+            .aside-bar-box{
+                margin: 0 50px;
+            }
+            .menu-control{
+                right: 50px;
+            }
+            .aside-bar{
+                width:50px;
+                height: 100vh;
+                position: fixed;
+                cursor: pointer;
+                font-family: Jolly;
+            }
+            .aside-bar-left{
+                background: linear-gradient(to right,#81ecec,#fff);
+            }
+            .aside-bar-left span{
+                display: block;
+                transform: rotate(-90deg) translateX(50%);
+                position: absolute;
+                left: -36%;
+                top: 50%;
+                transition: .3s;
+            }
+            .aside-bar-right{
+                right: 0;
+                background: linear-gradient(to left,#81ecec,#fff);
+            }
+            .aside-bar-right span{
+                display: block;
+                transform: rotate(90deg) translateX(-50%);
+                position: absolute;
+                right: -36%;
+                top: 50%;
+                transition: .3s;
+                white-space:nowrap;
+            }
+            .aside-bar-left:hover span{
+                transform: rotate(-90deg) translateX(50%) scale(1.3);
+            }
+            .aside-bar-right:hover span{
+                transform: rotate(90deg) translateX(-50%) scale(1.3);
+            }
+            .main-text{
+                animation: main-text-ani 2s 1;
+            }
+            @keyframes main-text-ani{
+                0%{
+                    padding: 20px 0vw;
+                }100%{
+                    padding: 20px 22vw;
+                }
+            }
+            .main-text-botLine{
+                animation: main-text-botLine 2s 1;
+            }
+            @keyframes main-text-botLine{
+                0%{
+                    height: 0;
+                }100%{
+                    height: 150px;
+                }
+            }
+            .main-text span{
+                font-size: 36px;
+            }
+            .menu-control,.menu-leave,.garbage-li,.menu-bot-box{
+                display: none;
+            }
+            .menu{
+                background-image: none;
+                display: flex;
+                justify-content: flex-end;
+                font-family: CH1;
+            }
+            .menu li{
+                list-style: none;
+                display: inline;
+                margin: 0 60px;
+                line-height: 50px;
+            }
+            .menu li span{
+                position: absolute;
+                display: block;
+                font-family: Jolly;
+                line-height: 0;
+                font-size: 12px;
+                top: 82%;
+            }
+            .menu li span:before{
+                content: " - ";
+            }
+            .menu-bot{
+                font-size: 0;
+                position: absolute;
+                right: -5px;
+                bottom: 0;
+                width: 550px;
+                height: 2px;
+                background-color: #00cec9;
+                transition: .5s;
+            }
+            li:nth-of-type(2):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 455px;
+            }
+            li:nth-of-type(3):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 300px;
+            }
+            li:nth-of-type(4):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 150px;
+            }
+            li:nth-of-type(5):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: -20px;
+            }
+            li:nth-of-type(2):hover ~ .menu-bot{
+                right: 395px;
+                width: 150px;
+            }
+            li:nth-of-type(3):hover ~ .menu-bot{
+                right: 240px;
+                width: 150px;
+            }
+            li:nth-of-type(4):hover ~ .menu-bot{
+                right: 90px;
+                width: 150px;
+            }
+            li:nth-of-type(5):hover ~ .menu-bot{
+                right: -56px;
+                width: 120px;
+            }
+            .menu li a:before{
+                content: "";
+                position: absolute;
+                width: 141px;
+                height: 50px;
+            }
         }
-        .main-imgBox img{
-            max-width: 100vw;
-        }
-        
-        .main-logoBox{
-            position: absolute;
-            top: 9px;
-            right: 50%;
-            transform: translateX(50%);
-            padding: 8px;
-            text-align: center;
-        }
-        
-        .main-logoBOx-svg{
-            border-radius: 50%;
-            background-color: #fff;
-        }
-        
-        .main-loboBox-text{
-            display: block;
-            color: #2d3436;
-            font-family: EX;
-            font-size: 14px;
-        }
-
-        .main-text{
-            box-sizing: content-box;
-            position: absolute;
-            font-family: EX;
-            text-align: center;
-            bottom: -36vh;
-            right: 50%;
-            transform: translateX(50%);
-            border: solid 1px;
-            display: flex;
-            flex-direction: column;
-            padding: 20px 22vw;
-            width: 50%;
-            line-height: 1.5;
-        }
-
-        .main-text span{
-            width: 100%;
-            font-size: 22px;
-        }
-
-        .main-text-botLine{
-            position: absolute;
-            border-left: solid 1px;
-            width: 50px;
-            height: 120px;
-            top: 100%;
-            left: 50%;
-        }
-
-        .hexPage{
-            height: 54vh;
-        }
-        .content{}
-        .content h1{
-            font-family:Ver;
-            font-size: 30px;
-            text-align: center;
-            margin: 60px auto;
-        }
-        
-        .content-box{
-            max-width: 80vw;
-            margin: auto;
-        }
-        
-        .content p{
-            font-family: monospace;
-            font-size: 16px;
-            color: #636e72;
-            line-height: 1.5;
-            letter-spacing: 1.2px;
-        }
-        
-        .content-btn{
-            font-family: monospace;
-            font-size: 20px;
-            border: solid 1px;
-            margin: 30px auto 0;
-            width:240px;
-            height: 40px;
-            text-align: center;
-            transition: .2s;
-        }
-        .content-btn a{
-            display: block;
-            width: 100%;
-            line-height: 40px;
-        }
-        
-        .content-btn:hover{
-            border: solid 1px #00cec9;
-            background-color: #00cec9;
-        }
-        
-        /*rwd*/
-        .aside-bar{
-            width:50px;
-            height: 100vh;
-            background-color: aliceblue;
-            position: fixed;
-            cursor: pointer;
-        }
-        .aside-bar-left{
-            
-        }
-        .aside-bar-left span{
-            display: block;
-            transform: rotate(-90deg);
-        }
-        .aside-bar-right{
-            right: 0;
-        }
+                            /**********RWD control END**********/
     </style>
 </head>
 
@@ -278,52 +432,54 @@
     <div class="aside-bar aside-bar-right"><span>ABOUT ME</span></div>
     <div class="aside-bar aside-bar-left"><span>PROTFOLIO</span></div>
     <input type="checkbox" id="menu-check">
-    <label for="menu-check" class="menu-control">
-        <div class="menu-contrlo-barBox">
-            <div class="menu-contrlo-bar"></div>
-            <div class="menu-contrlo-bar"></div>
-            <div class="menu-contrlo-bar"></div>
-        </div>
-    </label>
-    <header>
-        <div class="menu">
-            <div class="menu-leave"><i class="fas fa-times"></i></div>
-            <li class="garbage-li"></li>
-            <li><a href="#">首頁<span>WELCOME!</span></a></li>
-            <li><a href="#">簡歷<span>Self introduction</span></a></li>
-            <li><a href="#">作品集<span>Protfolio</span></a></li>
-            <li><a href="#">聯絡資訊<span>Contact Me</span></a></li>
-            <div class="menu-bot-box">
-                <i class="fab fa-git"></i>
-                <i class="fab fa-instagram"></i>
+    <div class="aside-bar-box">
+        <label for="menu-check" class="menu-control">
+            <div class="menu-contrlo-barBox">
+                <div class="menu-contrlo-bar"></div>
+                <div class="menu-contrlo-bar"></div>
+                <div class="menu-contrlo-bar"></div>
             </div>
-            <li class="menu-bot">SHARE</li>
-        </div>
-    </header>
-    <div class="hexPage">
-        <article class="main">
-            <div class="main-logoBox">
-                <object data="image/LOGO.svg" type="image/svg+xml" class="main-logoBOx-svg"></object>
-                <span class="main-loboBox-text">PERSONAL WEB</span>
+        </label>
+        <header>
+            <div class="menu">
+                <div class="menu-leave"><i class="fas fa-times"></i></div>
+                <li class="garbage-li"></li>
+                <li><a href="index.html">首頁<span>WELCOME!</span></a></li>
+                <li><a href="resume.html">簡歷<span>Self introduction</span></a></li>
+                <li><a href="profolio.html">作品集<span>Protfolio</span></a></li>
+                <li><a href="contact.html">聯絡資訊<span>Contact me</span></a></li>
+                <div class="menu-bot-box">
+                    <i class="fab fa-git"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <li class="menu-bot">SHARE</li>
             </div>
+        </header>
+        <div class="hexPage">
+            <article class="main">
+                <div class="main-logoBox">
+                    <object data="image/LOGO.svg" type="image/svg+xml" class="main-logoBOx-svg"></object>
+                    <span class="main-loboBox-text">PERSONAL WEB</span>
+                </div>
 
 
-            <div class="main-imgBox"><img src="image/main.png"></div>
-            <div class="main-text">
-                <span>WELCOME</span>
-                <span>TO</span>
-                <span>J'S WEBSITE</span>
-                <div class="main-text-botLine"></div>
-            </div>
+                <div class="main-imgBox"><img src="image/main.png"></div>
+                <div class="main-text">
+                    <span>WELCOME</span>
+                    <span>TO</span>
+                    <span>J'S WEBSITE</span>
+                    <div class="main-text-botLine"></div>
+                </div>
 
-        </article>
-    </div>
-    <div class="content">
-        <h1>ABOUT ME</h1>
-        <div class="content-box">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ullam velit animi possimus nostrum sapiente provident omnis numquam architecto repudiandae accusantium nemo explicabo ipsum perferendis, cum ratione, excepturi est delectus.</p>
+            </article>
         </div>
-        <div class="content-btn"><a href="#">MORE ABOUT ME</a></div>
+        <div class="content">
+            <h1>ABOUT ME</h1>
+            <div class="content-box">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel ullam velit animi possimus nostrum sapiente provident omnis numquam architecto repudiandae accusantium nemo explicabo ipsum perferendis, cum ratione, excepturi est delectus.</p>
+            </div>
+            <div class="content-btn"><a href="#">MORE ABOUT ME</a></div>
+        </div>
     </div>
     <script>
         $(document).ready(function() {
@@ -337,8 +493,7 @@
                     $(".menu-control").show();
                 });
             });
-        })
-
+        });
     </script>
 </body>
 

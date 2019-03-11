@@ -3,25 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="lib/reset.css">
+    <script src="lib/jquery-3.3.1.min.js"></script>
     <style>
         .box{
-            border: solid 3px;
-            width: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        .a{
+            display: inline-block;
+            margin: 10px;
+            border:1px solid black;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
             text-align: center;
         }
-        
-        .box a{
-            width: 100%;
-            text-decoration: none;
+        .box-in{
+            line-height: 50px;
+            
         }
-        
-        .box:hover{
-            border: solid aquamarine;
-            background-color: aquamarine;
+        .add-color{
+            color: red;
         }
     </style>
+    <script>
+        $(document).ready(function() {
+            $(".box").on("mousemove", ".box-in",function(){
+                $(this).addClass("add-color");
+            })
+        });
+    </script>
 </head>
+
 <body>
-    <div class="box"><a href="">btn</a></div>
+    <div class="box">
+        <div class="a box1">
+            <div class="box-in"><a href="home.html">1234</a></div>
+        </div>
+        <div class="a box2">
+            <div class="box-in">BOX2</div>
+        </div>
+        <div class="a box3">
+            <div class="box-in">BOX3</div>
+        </div>
+        <div class="a box4">
+            <div class="box-in">BOX4</div>
+        </div>
+    </div>
 </body>
 </html>
