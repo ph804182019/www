@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .content{            
+            width: 90%;
+            height: auto;
+            margin: 30px auto;
+            line-height: 1.6em;
+            text-indent: 2em;
+        }
+        .content .motto{
+            color: #636e72;
+            text-align: center;
+            margin: 30px auto;
+            font-size: 14px;
+            text-indent: 0;
+        }
+        .content strong{
+            font-weight: 700;
+        }
+        .content p{
+        }
+        .content span{
+            text-decoration: underline;
+        }
+        /*
+        skill
+        */
+        .skill{
+            width: 90%;
+            margin: 30px auto;
+        }        
+        .skill h3{
+            font-size: 1.2em;
+        }
+        .skill-bar{
+            display: block;
+            width: 80%;
+            height: 3px;
+            background-color: #dff9fb;
+            margin: 1em auto;
+            border: solid 1px rgba(199, 236, 238,0.3);
+            border-radius: 5px;
+            box-shadow: 0 0 10px #c7ecee;
+            overflow: hidden;
+        }
+        .skill-bar span{
+            background-color: #22a6b3;
+            float: left;
+            height: 3px;
+        }
+        .skill-bar-html{
+            width: 75%;
+            animation: html 2s;
+        }
+        .skill-bar-css{
+            width: 65%;
+            animation: css 2s;
+        }
+        .skill-bar-js{
+            width: 40%;
+            animation: js 2s;
+        }
+        .skill-bar-jq{
+            width: 50%;
+            animation: jq 2s;
+        }
+        .skill-bar-bs{
+            width: 20%;
+            animation: bs 2s;
+        }
+        @keyframes html{
+            0%{
+                width: 0;
+            }100%{
+                width: 75%;
+            }
+        }
+        @keyframes css{
+            0%{
+                width: 0;
+            }100%{
+                width: 65%;
+            }
+        }
+        @keyframes js{
+            0%{
+                width: 0;
+            }100%{
+                width: 40%;
+            }
+        }
+        @keyframes jq{
+            0%{
+                width: 0;
+            }100%{
+                width: 50%;
+            }
+        }
+        @keyframes bs{
+            0%{
+                width: 0;
+            }100%{
+                width: 20%;
+            }
+        }
+        @media screen and (min-width:876px){
+            .skill-box{
+                display: flex;
+                justify-content: space-around;
+            }
+            .knowledge-box{
+                display: block;
+                width: 50%;
+                margin: 0 auto;
+            }
+            .lenguage-box{
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+            <article class="skill">                
+                <h3>HTML5</h3>
+                <span class="skill-bar"><span class="skill-bar-html"></span></span>
+                <h3>CSS3</h3>
+                <span class="skill-bar"><span class="skill-bar-css"></span></span>
+                <h3>JavaScript</h3>
+                <span class="skill-bar"><span class="skill-bar-js"></span></span>
+                <h3>jQuery</h3>
+                <span class="skill-bar"><span class="skill-bar-jq"></span></span>
+                <h3>Bootstrap</h3>
+                <span class="skill-bar"><span class="skill-bar-bs"></span></span>
+            </article>
+            <div class="skill-box">
+                <article class="knowledge">
+                   <h1>KNOWLEDGE</h1>
+                   <div class="knowledge-box">
+                    <span><i class="far fa-check-square"></i><h5>Html</h5></span>
+                    <span><i class="far fa-check-square"></i><h5>CSS</h5></span>
+                    <span><i class="far fa-check-square"></i><h5>Js/jQuery</h5></span>
+                    <span><i class="far fa-check-square"></i><h5>Git</h5></span>
+                    <span><i class="far fa-check-square"></i><h5>Photoshop</h5></span>
+                    <span><i class="far fa-check-square"></i><h5>Illustrator</h5></span>
+                    </div>
+                </article>
+                <article class="lenguage">
+                    <h1>LENGUAGE</h1>
+                    <section class="lenguage-box">
+                        <span>中文：<div></div><div></div><div></div><div></div></span>
+                        <span>英文：<div></div></span>
+                        <span>台語：<div></div><div></div><div></div></span>
+                        <span>日文：<div></div><div></div></span>
+                    </section>
+                </article>
+            </div>
+</body>
+</html>

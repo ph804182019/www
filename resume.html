@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>J's WebSite</title>
+    <link rel="stylesheet" href="lib/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <style>
+        /*font-family Start*/
+        @font-face{
+            font-family:BLK;
+            src:url('font/BLACK Personal Use.ttf');
+        }
+        @font-face{
+            font-family:CH1;
+            src:url('font/OmePlus-P-Gothic-medium.ttf');
+        }
+        @font-face{
+            font-family:EX;
+            src:url('font/Explogos - Demo.ttf');
+        }
+        @font-face{
+            font-family:Ver;
+            src:url('font/Vertexio.otf');
+        }
+        @font-face{
+            font-family:Jolly;
+            src:url('font/Jolly.ttf');
+        }
+                            /*font-family END*/
+                            /*reset Start*/
+        body{
+            overflow-x: hidden;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+                            /*reset END*/
+                            /**********CheckBox Start**********/
+        header{
+            position: relative;
+        }
+        #menu-check{
+            position: fixed;
+            display: none;
+        }
+        .menu-control{
+            position: fixed;
+            top: 50px;
+            right: 0px;
+            width: 44px;
+            height: 44px;
+            background-color:black;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .menu-contrlo-barBox{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .menu-contrlo-barBox .menu-contrlo-bar{
+            background-color: aliceblue;
+            width: 32px;
+            height: 2px;
+            margin: 3px auto;
+        }
+                            /**********CheckBox END**********/
+
+                            /**********Main Start**********/
+        .main{
+            position: relative;
+        }
+        .main-imgBox{
+            position: absolute;
+            width: 100vw;
+            top: 80px;
+            z-index: -1;
+        }
+        .main-imgBox img{
+            max-width: 100vw;
+        }
+        
+        .main-logoBox{
+            position: absolute;
+            top: 9px;
+            right: 50%;
+            transform: translateX(50%);
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .main-logoBOx-svg{
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        
+        .main-loboBox-text{
+            display: block;
+            color: #2d3436;
+            font-family: EX;
+            font-size: 14px;
+        }
+
+        .main-text{
+            position: absolute;
+            top: 21vh;
+            right: 50%;
+            transform: translateX(50%);
+            border: solid 1px;
+        }
+        
+        .main-text-box{
+            font-family: EX;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.5;
+            white-space: nowrap;/*不換行*/
+        }
+
+        .main-text span{
+            width: 100%;
+            font-size: 22px;
+            margin: 0 21vw
+        }
+
+        .main-text-botLine{
+            position: absolute;
+            border-left: solid 1px;
+            width: 50px;
+            height: 150px;
+            top: 100%;
+            left: 50%;
+        }
+
+        .hexPage{
+            height: 80vh;
+        }
+                            /**********Main END**********/
+                            /**********Resume Start**********/
+        .resume{
+            width: 90%;
+            position: relative;
+            font-family: CH1;
+            margin: 30px auto;
+        }
+        /*
+        self
+        */
+        .self-box{
+            max-width: 150px;
+            height: auto;
+            margin: 0 auto;            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .self-box img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .barLine{
+            width: 5em;
+            height: 3px;
+            background-color: #00cec9;
+            margin: 2em auto;
+        }
+        .resume h1{
+            font-size: 2em;
+            text-align: center;
+        }
+        .resume h5{
+            display: inline;
+            margin: 0 1em;
+        }
+        .resume i{
+            color: #00cec9;
+        }
+        .knowledge{
+            width: 90%;
+            margin: 15px auto;            
+        }
+        .knowledge-box{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .knowledge span,.lenguage span{
+            display: block;
+            margin: 10px;
+        }
+        .lenguage{
+            width: 90%;
+            margin: 10px auto;
+        }
+        .lenguage span{
+            display: flex;
+            white-space:nowrap;
+        }
+        .lenguage div{
+            width: 30px;
+            height: 3px;
+            background-color: #00cec9;
+            margin: auto 2px;
+        }
+                           /**********Resume End**********/
+                            /**********RWD control Start**********/
+        @media screen and (max-width:875px){
+            .aside-bar{
+                display: none;
+            }
+                            /**********Menu Start**********/
+            .menu{
+                background-image:url(image/bgcolor.png);
+                height: 100vh;
+                width: 100%;
+                list-style: none;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .menu-leave{
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: aliceblue;
+                height: 66px;
+                width: 66px;
+                cursor: pointer;
+                line-height: 66px;
+                text-align: center;
+                font-size: 42px;
+            }
+            .garbage-li{
+                height: 18%;
+            }
+            .menu li a{
+                text-decoration: none;
+                font-size: 40px;
+                text-align: center;
+                display: block;
+                margin: 22px auto;
+                color: black;
+                font-family: CH1;
+                transition: .2s;
+            }
+            .menu li a span{
+                display: block;
+                font-size: 20px;
+                font-family: BLK;
+                color: #0F2B2E;
+                transition: .2s;
+            }
+            .menu li:hover a,.menu li:hover a span{
+                color: aliceblue;
+            }
+
+            .menu-bot-box{
+                font-size: 20px;
+                position: absolute;
+                right: 50%;
+                bottom: 6%;
+                transform: translateX(50%);
+            }
+
+            .menu-bot-box i{
+                border: solid 1px;
+
+                padding: 10px;
+            }
+
+            .menu-bot{
+                position: absolute;
+                right: 50%;
+                bottom: 2%;
+                transform:  translateX(50%);
+                font-family: EX;
+                font-size: 12px;
+                letter-spacing: 1.6px;
+            }
+            .main-text span{
+                animation: main-text-span-ani 2s ease-in .7s 1;
+            }
+            .main-text{
+                animation: main-text-ani ease-in 2.2s 1;
+                width: 80%;
+                top: 36vh;
+            }
+            @keyframes main-text-ani{
+                0%{
+                    width: 0;
+                }
+                100%{
+                    width: 80%;
+                }
+            }
+            .main-text span{
+                animation: main-text-span-ani 2s .7s 1;
+                animation-fill-mode:forwards;/*維持動畫結束狀態*/
+                opacity: 0;
+                font-size: 30px;
+            }
+            @keyframes main-text-span-ani{
+                0%{
+                    opacity: 0;
+                }100%{
+                    opacity: 1;
+                }
+            }
+            .main-text-botLine{
+                animation: main-text-botLine 2s 2s 1;
+                height: 0;
+                opacity: 0;
+                animation-fill-mode:forwards;
+            }
+            @keyframes main-text-botLine{
+                0%{
+                    height: 0;
+                }100%{
+                    height: 80px;
+                    opacity: 1;
+                }
+            }
+                            /**********Menu END**********/
+            
+        }
+        @media screen and (min-width:876px){
+            .aside-bar-box{
+                margin: 0 50px;
+            }
+            .menu-control{
+                right: 50px;
+            }
+            .aside-bar{
+                width:50px;
+                height: 100vh;
+                position: fixed;
+                cursor: pointer;
+                font-family: Jolly;
+            }
+            .aside-bar-left{
+                background: linear-gradient(to right,#81ecec,#fff);
+            }
+            .aside-bar-left a{
+                display: block;
+                transform: rotate(-90deg) translateX(50%);
+                position: absolute;
+                left: -8%;
+                top: 50%;
+                transition: .3s;
+            }
+            .aside-bar-left a:before{
+                position: absolute;
+                content: "";
+                left: -49vh;
+                top: -10px;
+                width: 100vh;
+                height: 400%;
+                z-index: 999;
+            }
+            .aside-bar-right a:before{
+                position: absolute;
+                content: "";
+                right: -49vh;
+                top: -15px;
+                width: 100vh;
+                height: 400%;
+                z-index: 999;
+            }
+            .aside-bar-right{
+                right: 0;
+                background: linear-gradient(to left,#81ecec,#fff);
+            }
+            .aside-bar-right a{
+                display: block;
+                transform: rotate(90deg) translateX(-50%);
+                position: absolute;
+                right: -36%;
+                top: 50%;
+                transition: .3s;
+                white-space:nowrap;
+            }
+            .aside-bar-left:hover a{
+                transform: rotate(-90deg) translateX(50%) scale(1.3);
+            }
+            .aside-bar-right:hover a{
+                transform: rotate(90deg) translateX(-50%) scale(1.3);
+            }
+            .main-text{
+                animation: main-text-ani ease-in 1.6s 1;
+                width: 80%;
+            }
+            @keyframes main-text-ani{
+                0%{
+                    width: 0;
+                }
+                100%{
+                    width: 80%;
+                }
+            }
+            .main-text span{
+                animation: main-text-span-ani 2s .5s 1;
+                animation-fill-mode:forwards;/*維持動畫結束狀態*/
+                opacity: 0;
+                font-size: 36px;
+            }
+            @keyframes main-text-span-ani{
+                0%{
+                    opacity: 0;
+                }100%{
+                    opacity: 1;
+                }
+            }
+            .main-text-botLine{
+                animation: main-text-botLine 2s 2s 1;
+                height: 0;
+                opacity: 0;
+                animation-fill-mode:forwards;
+            }
+            @keyframes main-text-botLine{
+                0%{
+                    height: 0;
+                }100%{
+                    height: 150px;
+                    opacity: 1;
+                }
+            }
+            .menu-control,.menu-leave,.garbage-li,.menu-bot-box{
+                display: none;
+            }
+            .menu{
+                background-image: none;
+                display: flex;
+                justify-content: flex-end;
+                font-family: CH1;
+            }
+            .menu li{
+                list-style: none;
+                display: inline;
+                margin: 0 60px;
+                line-height: 50px;
+            }
+            .menu li span{
+                position: absolute;
+                display: block;
+                font-family: Jolly;
+                line-height: 0;
+                font-size: 12px;
+                top: 82%;
+            }
+            .menu li span:before{
+                content: " - ";
+            }
+            .menu-bot{
+                font-size: 0;
+                position: absolute;
+                right: -5px;
+                bottom: 0;
+                width: 550px;
+                height: 2px;
+                background-color: #00cec9;
+                transition: .5s;
+            }
+            li:nth-of-type(2):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 455px;
+            }
+            li:nth-of-type(3):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 300px;
+            }
+            li:nth-of-type(4):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: 150px;
+            }
+            li:nth-of-type(5):hover:before{
+                content: "";
+                background-color: #00cec9;
+                width: 150px;
+                height: 50px;
+                position: absolute;
+                z-index: -1;
+                right: -20px;
+            }
+            li:nth-of-type(2):hover ~ .menu-bot{
+                right: 395px;
+                width: 150px;
+            }
+            li:nth-of-type(3):hover ~ .menu-bot{
+                right: 240px;
+                width: 150px;
+            }
+            li:nth-of-type(4):hover ~ .menu-bot{
+                right: 90px;
+                width: 150px;
+            }
+            li:nth-of-type(5):hover ~ .menu-bot{
+                right: -56px;
+                width: 120px;
+            }
+            .menu li a:before{
+                content: "";
+                position: absolute;
+                width: 141px;
+                height: 50px;
+            }
+        }
+                            /**********RWD control END**********/
+    </style>
+</head>
+
+<body>
+    <div class="aside-bar aside-bar-right"><a href="profolio.html">PROTFOLIO</a></div>
+    <div class="aside-bar aside-bar-left"><a href="index.html">HOME</a></div>
+    <input type="checkbox" id="menu-check">
+    <div class="aside-bar-box">
+        <label for="menu-check" class="menu-control">
+            <div class="menu-contrlo-barBox">
+                <div class="menu-contrlo-bar"></div>
+                <div class="menu-contrlo-bar"></div>
+                <div class="menu-contrlo-bar"></div>
+            </div>
+        </label>
+        <header>
+            <div class="menu">
+                <div class="menu-leave"><i class="fas fa-times"></i></div>
+                <li class="garbage-li"></li>
+                <li><a href="index.html">首頁<span>WELCOME!</span></a></li>
+                <li><a href="resume.html">簡歷<span>Self introduction</span></a></li>
+                <li><a href="profolio.html">作品集<span>Protfolio</span></a></li>
+                <li><a href="contact.html">聯絡資訊<span>Contact me</span></a></li>
+                <div class="menu-bot-box">
+                    <a href="https://github.com/ph804182019/www"><i class="fab fa-git"></i></a>
+                    <a href="https://orepic.com/ph804182010"><i class="fab fa-instagram"></i></a>
+                </div>
+                <li class="menu-bot">SHARE</li>
+            </div>
+        </header>
+        <div class="hexPage">
+            <article class="main">
+                <div class="main-logoBox">
+                    <object data="image/LOGO.svg" type="image/svg+xml" class="main-logoBOx-svg"></object>
+                    <span class="main-loboBox-text">PERSONAL WEB</span>
+                </div>
+
+
+                <div class="main-imgBox"><img src="image/main.png"></div>
+                <div class="main-text">
+                    <div class="main-text-box">
+                        <span>HI, I am Jeremy.</span>
+                        <span>Here is my</span>
+                        <span>self introduction.</span>
+                    </div>
+                    <div class="main-text-botLine"></div>
+                </div>
+
+            </article>
+        </div>
+        <div class="resume">
+            <div class="self-box"><img src="image/selfa.png"></div>
+            <div class="barLine"></div>
+            <article class="content">
+                <p class="motto">：自接觸到前端後我有了明確的生涯目標 - 立志當一個飢渴的前端工程師。</p>
+                <strong>我是家緯，27歲，彰化人。</strong>
+                
+                <p>於台中市職訓局學習網頁設計，結訓後試著找工作發現那點皮毛只適合去當保險業務員，於是開始不斷尋找各種資源強化自己，從一開始什麼都想碰到後來什麼都懂但是什麼都不會，我想起那句話-<span>當你的才華還撐不起你的野心，你能做的只有靜下心來學習。</span></p>
+                <p>我有幸在網路找到<strong>Amos老師</strong>、國外的<strong>DarkCode頻道</strong>等許多優秀的資源，深切體會到學習的越多知道得越少…</p>
+            </article>
+            <h1>My Skills</h1>
+            <article id="skillPage">
+            </article>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".menu-control").click(function() {
+                $(".menu").fadeIn(800, function() { /*callback*/
+                    $(".menu-control").hide();
+                });
+            });
+            $(".menu-leave").click(function() {
+                $(".menu").fadeOut(800, function() {
+                    $(".menu-control").show();
+                });
+            });            
+        });
+        var flag = false;
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();//當前可視元素            
+            var windowHeight = $(this).height();//scroll長
+            var scrollHeight = $(document).height();//頁面總長
+            if(!flag){
+                if (scrollTop+windowHeight == scrollHeight) {
+                    show();
+                    console.log(scrollTop,windowHeight,scrollHeight);
+                    flag = true;
+                }
+            }
+            function show(){
+                $.get("skill.html",function(data){//用get方法得到skill.html內容
+                    $("#skillPage").append(data);//append更改DOM
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
